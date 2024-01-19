@@ -1,0 +1,285 @@
+@import "normalize.scss";
+@import "fonts.scss";
+
+@mixin flex() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin font-regular() {
+  font-family: "TT Lakes";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
+
+@mixin font-medium() {
+  font-family: "TT Lakes";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+@mixin font-bold() {
+  font-family: "TT Lakes";
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.6px;
+}
+
+body {
+  font-family: "TT Lakes", sans-serif;
+  background: #f8f8f8;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1120px;
+  overflow: hidden;
+  padding: 0 16px;
+  @media (min-width: 768px) {
+    padding: 0 24px;
+  }
+
+  @media (min-width: 1120px) {
+    padding: 0 32px;
+  }
+}
+
+.header {
+  @include flex();
+  min-height: 88px;
+  gap: 16px;
+
+  @media (min-width: 1120px) {
+    display: none;
+  }
+
+  background-color: #ffffff;
+  &__block {
+    @include flex();
+    gap: 16px;
+  }
+
+  &__logo {
+    width: 97px;
+    height: 51px;
+    background: url(../assets/svg/logo.svg);
+  }
+
+  border-bottom: #d9fff5 1px solid;
+}
+
+.btn-rounded {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+}
+
+.divider {
+  margin-right: 4px;
+  width: 2px;
+  height: 32px;
+  background-color: #eaeaea;
+  border-radius: 1px;
+}
+
+.mobile-hidden {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
+
+.burger {
+  background: url(../assets/svg/burger.svg);
+}
+
+.phone {
+  background: url(../assets/svg/phone.svg);
+}
+
+.chat {
+  background: url(../assets/svg/chat.svg);
+}
+
+.profile {
+  background: url(../assets/svg/profile.svg);
+}
+
+.settings {
+  background: url(../assets/svg/settings.svg);
+}
+
+.search {
+  background: url(../assets/svg/search.svg);
+}
+
+.main {
+  background-color: #f8f8f8;
+}
+.services {
+  &-headline {
+    margin-top: 24px;
+
+    &__item {
+      @include flex();
+      @include font-medium();
+      color: #1b1c21;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    @media (min-width: 1120px) {
+      margin-top: 42px;
+      @include flex();
+    }
+
+    &__title {
+      @include font-bold();
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 8px;
+        height: 40px;
+        left: -4px;
+        background-color: #41f6d7;
+        border-radius: 20px;
+      }
+    }
+
+    &__btns {
+      @include flex();
+      gap: 32px;
+    }
+  }
+
+  &__inner {
+    margin-top: 24px;
+  }
+
+  &__nav {
+    @include flex();
+    overflow: auto;
+    min-height: 40px;
+    margin-top: 24px;
+
+    &-item-btn {
+      @include font-medium();
+      padding: 8px 16px;
+      color: #7e7e82;
+      white-space: nowrap;
+      transition: 0.3s;
+
+      &:hover {
+        color: #1b1c21;
+      }
+
+      &--active {
+        background-color: #ffffff;
+        border: 2px solid #b8ffec;
+        border-radius: 6px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      margin-top: 32px;
+    }
+
+    @media (min-width: 1120px) {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-top: 8px;
+    }
+  }
+
+  &__descr {
+    margin-top: 24px;
+
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      margin-top: 32px;
+      padding: 0 24px;
+      max-width: 1120px;
+      display: flex;
+      gap: 48px;
+    }
+
+    @media (min-width: 1120px) {
+      padding: 0 32px;
+      margin-top: 0;
+    }
+  }
+
+  &__text-box {
+    @media (min-width: 768px) {
+      flex-basis: 50%;
+      padding: 0;
+    }
+  }
+
+  &__text {
+    @include font-regular();
+    @media (min-width: 1120px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__more {
+    margin-top: 16px;
+
+    &-btn {
+      @include font-medium();
+      color: #1b1c21;
+      display: flex;
+      gap: 8px;
+      &::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(../assets/svg/expand.svg);
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__img-box {
+    margin-top: 16px;
+
+    @media (min-width: 768px) {
+      flex-basis: 50%;
+      margin-top: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    vertical-align: text-top;
+
+    @media (min-width: 768px) {
+      border-radius: 5px;
+    }
+  }
+}
+
+.desktop-visible {
+  display: none;
+  @media (min-width: 1120px) {
+    display: flex;
+  }
+}
